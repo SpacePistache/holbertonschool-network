@@ -1,4 +1,28 @@
 #!/usr/bin/env bash
 # This script displays all listening TCP and UDP sockets, including the PID and program name.
 
-sudo ss -tulnp
+#!/usr/bin/env bash
+# This script displays all listening TCP and UDP sockets,
+# including the PID and program name.
+
+# Check if script is run as root, if not use sudo
+if [ "$EUID" -ne 0 ]; then
+  echo "This script requires root privileges to show process details."
+  echo "Rerunning with sudo..."
+  sudo "$0"
+  exit $?
+fi
+
+echo "Listening Ports (TCP and UDP):"
+echo "-----------------------------"
+echo "Protocol | Local Address:Port | PID | Program Name"
+echo "-----------------------------"
+
+
+ss -tulnp | grep LISTEN | awk '{print $1 " | " $5 " | " $7}' | sed 's/users:((//' | sed 's/,.*//' | sed 's/"//g' | sort
+
+echo ""
+echo "Common ports reference:"
+echo "22 - SSH"
+echo "80 - HTTP"
+echo "443 - HTTPS"
