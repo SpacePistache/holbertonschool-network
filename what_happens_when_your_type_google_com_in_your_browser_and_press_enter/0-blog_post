@@ -1,0 +1,142 @@
+What Happens When You Type https://www.google.com and Press Enter?
+At first glance, entering a web address into a browser and pressing Enter seems like a trivial action—something so commonplace we rarely give it a second thought. Yet, this simple gesture initiates a remarkably sophisticated series of operations involving multiple layers of technology, from network infrastructure to server-side logic and data retrieval.
+
+In this article, we will examine, step by step, what occurs behind the scenes when you type https://www.google.com into your browser and press Enter. This journey will encompass systems such as DNS, TCP/IP, HTTPS, firewalls, load balancers, web and application servers, and databases.
+
+1. DNS Resolution — Locating Google
+The process begins with a fundamental question: Where is www.google.com?
+
+The internet operates on IP addresses, not human-readable names. The Domain Name System (DNS) serves as a hierarchical and distributed phonebook that translates domain names into IP addresses.
+
+This resolution process typically follows several stages:
+
+Browser cache: Your browser first checks whether it has recently resolved this domain.
+
+Operating system cache: Failing that, it queries your OS’s DNS cache.
+
+Router cache: If the address is still unknown, your router may have a stored result.
+
+ISP’s DNS resolver: Otherwise, the request is sent to your Internet Service Provider’s recursive DNS resolver.
+
+Root, TLD, and Authoritative nameservers: If necessary, the resolver contacts the global DNS hierarchy—beginning with root servers, followed by top-level domain (TLD) servers (e.g., .com), and finally reaching Google's authoritative nameserver.
+
+Eventually, this process yields an IP address—for instance, 142.250.190.68—that can be used to contact Google’s infrastructure.
+
+2. TCP/IP — Establishing a Connection
+With the IP address in hand, your machine must now initiate communication. This is accomplished via the Transmission Control Protocol/Internet Protocol (TCP/IP) suite, the foundational set of protocols for data transmission over the internet.
+
+Your browser attempts to open a TCP connection to the IP address on port 443, which is reserved for HTTPS traffic. This process involves a three-way handshake:
+
+SYN – The client sends a synchronization request to initiate the connection.
+
+SYN-ACK – The server acknowledges the request.
+
+ACK – The client confirms and establishes the connection.
+
+These packets are encapsulated within IP datagrams and routed across the internet, passing through numerous intermediaries en route to Google's data center.
+
+3. Firewall — Ensuring Safe Access
+Before a connection is fully established, it must pass through several layers of firewall protection, both on the client side (e.g., your operating system and router) and on the server side.
+
+Firewalls enforce security policies by filtering traffic based on rules. For example:
+
+On your end, they may block outbound traffic to suspicious ports.
+
+On Google’s end, they defend against malicious actors by rejecting unauthorized or malformed requests.
+
+Only if the traffic satisfies all firewall conditions is it permitted to continue.
+
+4. HTTPS and TLS — Securing the Communication
+Because the URL begins with https://, the next step is to establish a secure, encrypted connection using Transport Layer Security (TLS)—the modern successor to SSL.
+
+This process, known as the TLS handshake, involves:
+
+Google’s server sending its TLS certificate, which includes its public key and is signed by a trusted Certificate Authority.
+
+Your browser verifying the certificate’s authenticity and confirming that it corresponds to the domain in question.
+
+Both client and server agreeing on a shared symmetric encryption key via asymmetric cryptographic techniques.
+
+Subsequent communication is encrypted using this symmetric key, ensuring both confidentiality and integrity.
+
+5. Load Balancer — Directing the Request
+Google’s global infrastructure receives billions of requests per day. To manage this immense traffic, it employs load balancers—systems designed to distribute incoming requests across multiple servers.
+
+Load balancers assess several criteria, including:
+
+Server availability and responsiveness
+
+Geographic proximity
+
+Current server load
+
+Network latency
+
+Based on this information, the load balancer forwards your request to the most appropriate backend server.
+
+6. Web Server — Interpreting the Request
+Once the request reaches the designated server, it first encounters a web server—such as Nginx or Apache—which performs several critical functions:
+
+Terminates the TLS connection and decrypts the incoming request
+
+Parses the HTTP request headers and method
+
+Serves static content (e.g., images, HTML, JavaScript)
+
+Forwards dynamic requests to the application layer
+
+For something like a search query (e.g., www.google.com/search?q=openai), the web server passes the request to the appropriate application logic for processing.
+
+7. Application Server — Executing Business Logic
+The application server is responsible for handling the core logic of the request. In Google’s case, this includes parsing the query, retrieving relevant data, and assembling the response.
+
+This step typically includes:
+
+Interpreting query parameters
+
+Validating inputs
+
+Coordinating with other internal services
+
+Making database queries
+
+Application servers are often built in high-performance languages such as C++, Go, or Java, and are optimized for scalability and low latency.
+
+8. Database — Retrieving Information
+Many modern web applications rely on databases to store and retrieve structured data. In Google's case, traditional relational databases are insufficient for the scale and speed required.
+
+Instead, Google uses proprietary, distributed systems such as:
+
+Bigtable – For storing structured data
+
+Spanner – For globally distributed transactions
+
+Indexing systems – Optimized specifically for search
+
+The application server queries these systems to obtain documents, rankings, or metadata relevant to the user’s search.
+
+9. Response and Rendering — Delivering the Webpage
+Once the application server has assembled the response:
+
+It returns the result to the web server
+
+Which forwards it to the load balancer
+
+Which sends it back over the TLS-encrypted TCP connection
+
+Ultimately, it reaches your browser
+
+The browser receives the HTML response and proceeds to:
+
+Parse it into a DOM tree
+
+Load and execute any external resources (CSS, JavaScript, fonts)
+
+Render the visual representation of the page
+
+This entire sequence—from keystroke to rendered webpage—often completes in less than a second.
+
+Conclusion
+What appears to be a routine task—typing a URL and pressing Enter—masks an extraordinarily complex choreography of distributed systems, networking protocols, security mechanisms, and application logic.
+
+Understanding this flow is more than a useful interview exercise; it provides crucial insight into the architectural foundations of modern web development and the layered design of the internet itself.
