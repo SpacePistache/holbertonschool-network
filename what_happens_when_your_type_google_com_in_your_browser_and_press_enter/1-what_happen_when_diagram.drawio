@@ -1,0 +1,97 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36" version="27.0.6">
+  <diagram name="Detailed Request Flow" id="RmgHV_VBv67D2KX3XqvX">
+    <mxGraphModel dx="1042" dy="534" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-98" value="Browser" style="shape=mxgraph.cisco.computers_and_peripherals.client;" vertex="1" parent="1">
+          <mxGeometry x="20" y="100" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-99" value="DNS Cache" style="shape=rectangle;fillColor=#FFF2CC;" vertex="1" parent="1">
+          <mxGeometry x="20" y="180" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-100" value="Browser Cache" style="shape=rectangle;fillColor=#FFF2CC;" vertex="1" parent="1">
+          <mxGeometry x="20" y="230" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-101" value="DNS Resolver" style="shape=mxgraph.cisco.network.dns;" vertex="1" parent="1">
+          <mxGeometry x="160" y="100" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-102" value="Certificate Authority" style="shape=hexagon;fillColor=#DAE8FC;" vertex="1" parent="1">
+          <mxGeometry x="160" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-103" value="CDN Edge Node" style="shape=rectangle;fillColor=#E1D5E7;" vertex="1" parent="1">
+          <mxGeometry x="300" y="100" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-104" value="Firewall" style="shape=mxgraph.cisco.security.firewall;" vertex="1" parent="1">
+          <mxGeometry x="440" y="100" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-105" value="Load Balancer" style="shape=mxgraph.cisco.misc.balance;" vertex="1" parent="1">
+          <mxGeometry x="580" y="100" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-106" value="Web Server" style="shape=mxgraph.cisco.servers.generic_server;" vertex="1" parent="1">
+          <mxGeometry x="720" y="60" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-107" value="Application Server" style="shape=mxgraph.cisco.servers.generic_server;" vertex="1" parent="1">
+          <mxGeometry x="720" y="140" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-108" value="API Gateway" style="shape=rectangle;fillColor=#F8CECC;" vertex="1" parent="1">
+          <mxGeometry x="860" y="60" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-109" value="Auth Service" style="shape=rectangle;fillColor=#F8CECC;" vertex="1" parent="1">
+          <mxGeometry x="860" y="140" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-110" value="Cache (Redis)" style="shape=cylinder;fillColor=#FFF2CC;" vertex="1" parent="1">
+          <mxGeometry x="860" y="220" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-111" value="Database" style="shape=cylinder;fillColor=#DAE8FC;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="140" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-112" value="Monitoring System" style="shape=rectangle;fillColor=#D5E8D4;" vertex="1" parent="1">
+          <mxGeometry x="580" y="200" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-113" value="Logging System" style="shape=rectangle;fillColor=#D5E8D4;" vertex="1" parent="1">
+          <mxGeometry x="720" y="220" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-114" style="endArrow=block;" edge="1" parent="1" source="tFPOfgMu2zOXn8h4gdnu-98" target="tFPOfgMu2zOXn8h4gdnu-99">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-115" style="endArrow=block;" edge="1" parent="1" source="tFPOfgMu2zOXn8h4gdnu-99" target="tFPOfgMu2zOXn8h4gdnu-101">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-116" style="endArrow=block;" edge="1" parent="1" source="tFPOfgMu2zOXn8h4gdnu-101" target="tFPOfgMu2zOXn8h4gdnu-103">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-117" style="endArrow=block;" edge="1" parent="1" source="tFPOfgMu2zOXn8h4gdnu-103" target="tFPOfgMu2zOXn8h4gdnu-104">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-118" style="endArrow=block;" edge="1" parent="1" source="tFPOfgMu2zOXn8h4gdnu-104" target="tFPOfgMu2zOXn8h4gdnu-105">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-119" style="endArrow=block;" edge="1" parent="1" source="tFPOfgMu2zOXn8h4gdnu-105" target="tFPOfgMu2zOXn8h4gdnu-106">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-120" style="endArrow=block;" edge="1" parent="1" source="tFPOfgMu2zOXn8h4gdnu-106" target="tFPOfgMu2zOXn8h4gdnu-107">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-121" style="endArrow=block;" edge="1" parent="1" source="tFPOfgMu2zOXn8h4gdnu-107" target="tFPOfgMu2zOXn8h4gdnu-108">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-122" style="endArrow=block;" edge="1" parent="1" source="tFPOfgMu2zOXn8h4gdnu-108" target="tFPOfgMu2zOXn8h4gdnu-109">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-123" style="endArrow=block;" edge="1" parent="1" source="tFPOfgMu2zOXn8h4gdnu-109" target="tFPOfgMu2zOXn8h4gdnu-111">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-124" style="endArrow=block;" edge="1" parent="1" source="tFPOfgMu2zOXn8h4gdnu-107" target="tFPOfgMu2zOXn8h4gdnu-110">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-125" style="endArrow=block;" edge="1" parent="1" source="tFPOfgMu2zOXn8h4gdnu-107" target="tFPOfgMu2zOXn8h4gdnu-113">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="tFPOfgMu2zOXn8h4gdnu-126" style="endArrow=block;" edge="1" parent="1" source="tFPOfgMu2zOXn8h4gdnu-106" target="tFPOfgMu2zOXn8h4gdnu-112">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
